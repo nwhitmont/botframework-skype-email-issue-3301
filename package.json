@@ -12,10 +12,11 @@
   },
   "dependencies": {
     "botbuilder": "^3.9.1",
+    "emailjs": "^1.0.12",
+    "random-int": "^1.0.0",
     "restify": "^5.2.0"
   },
   "devDependencies": {},
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nwhitmont/botframework-skype-email-issue-3301.git"

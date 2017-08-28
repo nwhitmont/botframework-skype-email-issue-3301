@@ -5,7 +5,7 @@ const emailjs = require('emailjs');
 
 const restify = require('restify');
 
-const emailAccess = require('./../utilities/emailapp.js');
+//const emailAccess = require('./../utilities/emailapp.js');
 
 
 var connector = new botBuilder.ChatConnector({
