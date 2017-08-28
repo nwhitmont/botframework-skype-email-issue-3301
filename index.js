@@ -1,3 +1,5 @@
+//require('dotenv').config()
+
 const botBuilder = require('botbuilder');
 const randomInt = require('random-int');
 const emailjs = require('emailjs');
@@ -52,9 +54,13 @@ bot.dialog('/askEmailId', [
 
         sendEmail(session.userData.securityCode, session.userData.userName, (err, pretrievedContent) => {
             if (err) {
+                console.log('\n');
                 console.log(`There was an error sending the email: ${err}`);
+                console.log('\n');
             } else {
-                console.log(`Email sent successfully to: ${session.userData.userName}`)
+                console.log('\n');
+                console.log(`Email sent successfully to: ${session.userData.userName}`);
+                console.log('\n');
             }
         });
 

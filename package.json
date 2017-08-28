@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "botbuilder": "^3.9.1",
+    "dotenv": "^4.0.0",
     "emailjs": "^1.0.12",
     "random-int": "^1.0.0",
     "restify": "^5.2.0"
