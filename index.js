@@ -12,14 +12,15 @@ server.listen(process.env.port || process.env.PORT || 3978, () => {
     console.log(`${server.name} listening to ${server.url}`);
 });
 
+var connector = new botBuilder.ChatConnector({MICROSOFT_APP_ID: process.env.MICROSOFT_APP_ID, MICROSOFT_APP_PASSWORD: process.env.MICROSOFT_APP_PASSWORD});
+
+var bot = new botBuilder.UniversalBot(connector);
+
 server.post('/api/messages', connector.listen());
 server.get('/', function (request, response) {
     response.send(200, {status: 'online'});
 });
 
-var connector = new botBuilder.ChatConnector({MICROSOFT_APP_ID: process.env.MICROSOFT_APP_ID, MICROSOFT_APP_PASSWORD: process.env.MICROSOFT_APP_PASSWORD});
-
-var bot = new botBuilder.UniversalBot(connector);
 
 bot.on('conversationUpdate', function (message) {
     if (message.membersAdded) {
