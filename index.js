@@ -7,6 +7,15 @@ const emailjs = require('emailjs');
 const restify = require('restify');
 
 //const emailAccess = require('./../utilities/emailapp.js');
+var server = restify.createServer();
+server.listen(process.env.port || process.env.PORT || 3978, () => {
+    console.log(`${server.name} listening to ${server.url}`);
+});
+
+server.post('/api/messages', connector.listen());
+server.get('/', function (request, response) {
+    response.send(200, {status: 'online'});
+});
 
 var connector = new botBuilder.ChatConnector({MICROSOFT_APP_ID: process.env.MICROSOFT_APP_ID, MICROSOFT_APP_PASSWORD: process.env.MICROSOFT_APP_PASSWORD});
 
@@ -118,12 +127,5 @@ var sendEmail = function (pRandomNumber, pEmailId, callback) {
     });
 
 };
-
-var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, () => {
-    console.log(`${server.name} listening to ${server.url}`);
-});
-
-server.post('/api/messages', connector.listen());
 
 // END OF LINE
